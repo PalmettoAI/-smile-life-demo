@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smile Life Dentistry — Lexington, SC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #3b1f4e;
+    --plum-deep: #261338;
+    --plum-mid: #4e2a68;
+    --plum-light: #6b3d8a;
+    --gold: #c9a84c;
+    --gold-light: #e0c272;
+    --gold-pale: #f7f0df;
+    --white: #ffffff;
+    --off-white: #faf9f7;
+    --near-white: #f4f1ee;
+    --text: #1a0f24;
+    --text-mid: #5a4a6a;
+    --text-light: #9a8aaa;
+    --rule: #e8e0f0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+
+  /* DEMO BANNER */
+  .demo-banner {
+    background: var(--plum-deep); color: var(--gold-light); text-align: center;
+    padding: 10px 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; position: sticky; top: 0; z-index: 9999;
+  }
+  .demo-banner a { color: var(--gold-light); text-decoration: underline; }
+
+  /* NAV */
+  nav {
+    background: var(--white); padding: 0 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px; position: sticky; top: 37px; z-index: 100;
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: 'Abril Fatface', serif; font-size: 1.3rem; color: var(--plum);
+    letter-spacing: 0.02em; line-height: 1;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--plum); }
+  .nav-cta {
+    background: var(--plum); color: var(--white); padding: 11px 28px;
+    border-radius: 100px; font-size: 0.8rem; font-weight: 700; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--plum-mid); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--plum-deep); min-height: 100vh; position: relative;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    overflow: hidden; padding: 0;
+  }
+
+  /* Decorative circles */
+  .hero::before {
+    content: ''; position: absolute; top: -200px; right: -100px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -150px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(107,61,138,0.4) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  /* Big background text */
+  .hero-bg-text {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-family: 'Abril Fatface', serif; font-size: clamp(12rem, 20vw, 22rem);
+    color: rgba(255,255,255,0.025); white-space: nowrap; pointer-events: none;
+    letter-spacing: -0.05em; line-height: 1; z-index: 0;
+  }
+
+  .hero-inner {
+    position: relative; z-index: 1; display: grid;
+    grid-template-columns: 1fr 440px; min-height: 100vh;
+  }
+
+  .hero-left {
+    padding: 120px 80px; display: flex; flex-direction: column;
+    justify-content: center;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light); border-radius: 100px; padding: 7px 18px;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 36px; width: fit-content;
+  }
+  .hero-pill::before { content: '✦'; font-size: 0.6rem; }
+
+  .hero h1 {
+    font-family: 'Abril Fatface', serif;
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    font-weight: 400; line-height: 0.95; color: var(--white);
+    letter-spacing: -0.02em; margin-bottom: 0;
+  }
+  .hero h1 .gold { color: var(--gold); }
+  .hero h1 .outline {
+    -webkit-text-stroke: 2px rgba(255,255,255,0.35);
+    color: transparent;
+  }
+
+  .hero-sub {
+    font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.85;
+    max-width: 460px; margin: 36px 0 48px; font-weight: 300;
+  }
+
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn-gold {
+    background: var(--gold); color: var(--plum-deep); padding: 16px 36px;
+    border-radius: 100px; font-size: 0.85rem; font-weight: 700; text-decoration: none;
+    transition: background 0.2s, transform 0.2s; letter-spacing: 0.04em;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-ghost-plum {
+    color: rgba(255,255,255,0.65); font-size: 0.85rem; font-weight: 500;
+    text-decoration: none; display: flex; align-items: center; gap: 8px;
+    transition: color 0.2s;
+  }
+  .btn-ghost-plum:hover { color: var(--gold-light); }
+  .btn-ghost-plum::after { content: '→'; transition: transform 0.2s; }
+  .btn-ghost-plum:hover::after { transform: translateX(4px); }
+
+  .hero-nums {
+    display: flex; gap: 48px; margin-top: 72px; padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .h-num .n {
+    font-family: 'Abril Fatface', serif; font-size: 2.8rem; color: var(--gold);
+    line-height: 1; letter-spacing: -0.02em;
+  }
+  .h-num .l { font-size: 0.68rem; font-weight: 500; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+
+  /* HERO RIGHT — FORM */
+  .hero-right {
+    background: var(--white); display: flex; flex-direction: column;
+    justify-content: center; padding: 72px 52px;
+    animation: slideIn 0.8s ease 0.3s both;
+  }
+
+  .form-badge {
+    display: inline-flex; align-items: center; gap: 6px; background: var(--gold-pale);
+    color: var(--gold); border-radius: 100px; padding: 5px 14px;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 16px; width: fit-content;
+  }
+  .form-title { font-family: 'Abril Fatface', serif; font-size: 1.6rem; color: var(--plum-deep); line-height: 1.2; margin-bottom: 6px; }
+  .form-sub { font-size: 0.82rem; color: var(--text-mid); margin-bottom: 28px; line-height: 1.55; font-weight: 300; }
+  .form-sep { height: 1px; background: var(--rule); margin-bottom: 24px; }
+
+  .fg { margin-bottom: 14px; }
+  .fg label { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px; }
+  .fg input, .fg select {
+    width: 100%; padding: 13px 16px; border: 1.5px solid var(--rule); border-radius: 10px;
+    background: var(--off-white); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.88rem; color: var(--text); outline: none; transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .fg input:focus, .fg select:focus { border-color: var(--plum); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .btn-book-plum {
+    width: 100%; background: var(--plum); color: var(--white); border: none;
+    padding: 16px; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 700; cursor: pointer; margin-top: 8px;
+    transition: background 0.2s, transform 0.2s; letter-spacing: 0.04em;
+  }
+  .btn-book-plum:hover { background: var(--plum-mid); transform: translateY(-1px); }
+  .form-privacy { font-size: 0.68rem; color: var(--text-light); text-align: center; margin-top: 12px; }
+
+  .confirm-state { display: none; text-align: center; padding: 40px 0; }
+  .confirm-state .icon { font-size: 3rem; margin-bottom: 16px; }
+  .confirm-state h4 { font-family: 'Abril Fatface', serif; font-size: 1.4rem; color: var(--plum); margin-bottom: 8px; }
+  .confirm-state p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.65; }
+
+  /* ── SERVICES ── */
+  .services { background: var(--off-white); padding: 120px 80px; }
+
+  .sec-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 72px; }
+  .sec-kicker { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .sec-title { font-family: 'Abril Fatface', serif; font-size: clamp(2.2rem, 4vw, 3.5rem); color: var(--plum-deep); line-height: 1.05; }
+  .sec-title span { color: var(--gold); }
+  .sec-desc { font-size: 0.92rem; color: var(--text-mid); line-height: 1.8; font-weight: 300; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .svc-card {
+    background: var(--white); border-radius: 20px; padding: 36px 28px;
+    border: 1.5px solid var(--rule); position: relative; overflow: hidden;
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.3s, box-shadow 0.3s;
+  }
+  .svc-card.visible { opacity: 1; transform: translateY(0); }
+  .svc-card:hover { border-color: var(--plum-light); box-shadow: 0 20px 50px rgba(59,31,78,0.08); }
+
+  /* Gold top bar on hover */
+  .svc-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--plum), var(--gold));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+  }
+  .svc-card:hover::before { transform: scaleX(1); }
+
+  .svc-icon { font-size: 2rem; margin-bottom: 20px; display: block; }
+  .svc-card h4 { font-family: 'Abril Fatface', serif; font-size: 1.1rem; color: var(--plum-deep); margin-bottom: 10px; line-height: 1.2; }
+  .svc-card p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.75; font-weight: 300; }
+
+  /* ── NO-SHOW STRIP ── */
+  .noshow-strip {
+    background: var(--plum-deep); padding: 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .noshow-strip::before {
+    content: '0'; position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+    font-family: 'Abril Fatface', serif; font-size: 30rem; color: rgba(255,255,255,0.02);
+    line-height: 1; pointer-events: none;
+  }
+
+  .ns-left { position: relative; z-index: 1; }
+  .ns-left .sec-kicker { color: var(--gold-light); }
+  .ns-left h2 { font-family: 'Abril Fatface', serif; font-size: clamp(2rem, 3.5vw, 3rem); color: var(--white); line-height: 1.1; margin-bottom: 20px; }
+  .ns-left h2 span { color: var(--gold); }
+  .ns-left p { font-size: 0.92rem; color: rgba(255,255,255,0.55); line-height: 1.85; font-weight: 300; }
+
+  .ns-right { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1; }
+  .ns-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 16px; padding: 28px 20px; text-align: center;
+  }
+  .ns-card .big { font-family: 'Abril Fatface', serif; font-size: 2.6rem; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+  .ns-card .label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  /* ── COSMETIC FOCUS ── */
+  .cosmetic { background: var(--white); padding: 120px 80px; }
+  .cosmetic-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+
+  .cos-right { order: -1; }
+  .cos-visual {
+    background: linear-gradient(135deg, var(--plum) 0%, var(--plum-deep) 100%);
+    border-radius: 28px; aspect-ratio: 4/5; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 40px; position: relative; overflow: hidden;
+  }
+  .cos-visual::before {
+    content: '✦'; font-size: 18rem; color: rgba(255,255,255,0.03);
+    position: absolute; top: -40px; right: -40px; line-height: 1;
+  }
+  .cos-tag {
+    background: var(--gold); color: var(--plum-deep); border-radius: 100px;
+    padding: 10px 22px; font-size: 0.78rem; font-weight: 700; width: fit-content;
+    margin-bottom: 16px; letter-spacing: 0.04em;
+  }
+  .cos-visual h3 { font-family: 'Abril Fatface', serif; font-size: 2rem; color: var(--white); line-height: 1.1; }
+  .cos-visual p { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-top: 8px; font-weight: 300; }
+
+  .cos-left .sec-kicker { margin-bottom: 12px; }
+  .cos-left h2 { font-family: 'Abril Fatface', serif; font-size: clamp(2.2rem, 3.5vw, 3rem); color: var(--plum-deep); line-height: 1.1; margin-bottom: 20px; }
+  .cos-left h2 span { color: var(--gold); }
+  .cos-left p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 14px; font-weight: 300; }
+
+  .feature-list { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+  .feature-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    opacity: 0; transform: translateX(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .feature-item.visible { opacity: 1; transform: translateX(0); }
+  .feature-dot { width: 28px; height: 28px; background: var(--gold-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+  .feature-item h5 { font-size: 0.9rem; font-weight: 700; color: var(--plum-deep); margin-bottom: 3px; }
+  .feature-item p { font-size: 0.8rem; color: var(--text-mid); line-height: 1.6; font-weight: 300; }
+
+  /* ── REVIEWS ── */
+  .reviews { background: var(--near-white); padding: 100px 80px; }
+  .reviews-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+  .reviews-top h2 { font-family: 'Abril Fatface', serif; font-size: clamp(2rem, 3.5vw, 3rem); color: var(--plum-deep); line-height: 1.1; }
+  .reviews-top h2 span { color: var(--gold); }
+  .reviews-top .stars-big { font-size: 2.5rem; letter-spacing: 4px; color: var(--gold); }
+
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .rv {
+    background: var(--white); border-radius: 20px; padding: 32px 28px;
+    border: 1.5px solid var(--rule);
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .rv.visible { opacity: 1; transform: translateY(0); }
+  .rv-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 3px; margin-bottom: 16px; }
+  .rv-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 20px; font-style: italic; font-weight: 300; }
+  .rv-author { font-size: 0.72rem; font-weight: 700; color: var(--text); letter-spacing: 0.04em; }
+
+  /* ── CTA ── */
+  .final-cta {
+    background: linear-gradient(135deg, var(--plum-deep) 0%, var(--plum) 100%);
+    padding: 120px 80px; text-align: center; position: relative; overflow: hidden;
+  }
+  .final-cta::before {
+    content: '✦'; font-size: 30rem; color: rgba(255,255,255,0.02);
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    font-family: serif; line-height: 1; pointer-events: none;
+  }
+  .final-cta .sec-kicker { color: var(--gold-light); margin-bottom: 16px; position: relative; }
+  .final-cta h2 { font-family: 'Abril Fatface', serif; font-size: clamp(2.8rem, 5vw, 5rem); color: var(--white); line-height: 1.0; margin-bottom: 20px; position: relative; }
+  .final-cta h2 span { color: var(--gold); }
+  .final-cta p { font-size: 0.95rem; color: rgba(255,255,255,0.55); max-width: 460px; margin: 0 auto 52px; line-height: 1.85; font-weight: 300; position: relative; }
+  .cta-pair { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .btn-outline-gold { background: transparent; color: var(--gold-light); padding: 16px 36px; border-radius: 100px; font-size: 0.85rem; font-weight: 700; text-decoration: none; border: 2px solid rgba(201,168,76,0.4); transition: all 0.2s; display: inline-block; letter-spacing: 0.04em; }
+  .btn-outline-gold:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* FOOTER */
+  footer { background: var(--plum-deep); padding: 64px 80px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; border-top: 2px solid rgba(201,168,76,0.3); }
+  .f-logo { font-family: 'Abril Fatface', serif; font-size: 1.2rem; color: var(--white); margin-bottom: 14px; }
+  .f-logo span { color: var(--gold); }
+  footer p, footer a { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; line-height: 2.2; display: block; }
+  footer a:hover { color: var(--gold-light); }
+  footer h5 { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+
+  @media (max-width: 1000px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-left { padding: 80px 30px; }
+    .hero-right { padding: 40px 30px; }
+    .hero-bg-text { display: none; }
+    .services { padding: 60px 30px; }
+    .sec-header { grid-template-columns: 1fr; gap: 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .noshow-strip { grid-template-columns: 1fr; padding: 60px 30px; gap: 40px; }
+    .cosmetic { padding: 60px 30px; }
+    .cosmetic-inner { grid-template-columns: 1fr; gap: 40px; }
+    .cos-right { order: 0; }
+    .reviews { padding: 60px 30px; }
+    .reviews-top { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .final-cta { padding: 80px 30px; }
+    footer { grid-template-columns: 1fr; padding: 40px 30px; gap: 28px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  🤖 PalmettoAI Demo — Built for Smile Life Dentistry &nbsp;·&nbsp; <a href="mailto:tony@palmettoai.com">tony@palmettoai.com</a>
+</div>
+
+<nav>
+  <div class="nav-logo">Smile<span>Life</span></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#cosmetic">Cosmetic</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#book" class="nav-cta">Book Online</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">SMILE</div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-pill">Now Accepting New Patients · Lexington, SC</div>
+      <h1>
+        <span class="outline">Your</span><br>
+        <span class="gold">Best</span><br>
+        Smile.
+      </h1>
+      <p class="hero-sub">Dr. Cariens and the Smile Life team combine advanced cosmetic techniques with genuine care — so you leave every visit more confident than when you walked in.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn-gold">Book Your Visit →</a>
+        <a href="tel:8033597752" class="btn-ghost-plum">📞 (803) 359-7752</a>
+      </div>
+      <div class="hero-nums">
+        <div class="h-num"><div class="n">15+</div><div class="l">Years Serving Lexington</div></div>
+        <div class="h-num"><div class="n">0</div><div class="l">No-Shows This Month</div></div>
+        <div class="h-num"><div class="n">5★</div><div class="l">Average Google Rating</div></div>
+      </div>
+    </div>
+
+    <div class="hero-right" id="book">
+      <div class="form-badge">✦ Quick & Easy</div>
+      <div class="form-title">Book Your Appointment</div>
+      <div class="form-sub">We'll confirm within 2 hours. New patients always welcome.</div>
+      <div class="form-sep"></div>
+
+      <div id="bookForm">
+        <div class="form-row">
+          <div class="fg"><label>First Name</label><input type="text" placeholder="First"></div>
+          <div class="fg"><label>Last Name</label><input type="text" placeholder="Last"></div>
+        </div>
+        <div class="fg"><label>Phone</label><input type="tel" placeholder="(803) 555-0100"></div>
+        <div class="fg">
+          <label>I'm Looking For</label>
+          <select>
+            <option>Routine Cleaning & Exam</option>
+            <option>Teeth Whitening</option>
+            <option>Veneers / Smile Makeover</option>
+            <option>Invisalign Consultation</option>
+            <option>Dental Implants</option>
+            <option>Emergency Visit</option>
+            <option>New Patient Exam</option>
+            <option>Not Sure — Recommend for Me</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Preferred Time</label>
+          <select>
+            <option>Morning (8am–12pm)</option>
+            <option>Afternoon (12pm–4pm)</option>
+            <option>Either Works</option>
+          </select>
+        </div>
+        <button class="btn-book-plum" onclick="submitBook()">Reserve My Spot →</button>
+        <div class="form-privacy">🔒 Private. Secure. No spam — ever.</div>
+      </div>
+
+      <div class="confirm-state" id="bookConfirm">
+        <div class="icon">🦷✨</div>
+        <h4>You're booked in!</h4>
+        <p>We'll send a confirmation text shortly. See you soon — your best smile is on its way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="sec-header">
+    <div>
+      <div class="sec-kicker">Full-Service Dental Care</div>
+      <div class="sec-title">Everything Your<br>Smile <span>Needs</span></div>
+    </div>
+    <div class="sec-desc">From your first cleaning to a complete smile transformation, Smile Life handles it all in one comfortable, beautifully designed Lexington office.</div>
+  </div>
+
+  <div class="services-grid">
+    <div class="svc-card">
+      <span class="svc-icon">🦷</span>
+      <h4>Preventive Cleanings</h4>
+      <p>Routine exams, cleanings, X-rays, and sealants. The foundation of lifelong oral health — and the best investment you can make in your smile.</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">✨</span>
+      <h4>Teeth Whitening</h4>
+      <p>Professional-grade whitening that actually works. In-office treatment gets you 6–8 shades brighter in a single visit — coffee stains be gone.</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">💎</span>
+      <h4>Porcelain Veneers</h4>
+      <p>Transform chipped, stained, or misaligned teeth with ultra-thin porcelain shells. Custom-crafted, naturally beautiful, permanently life-changing.</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">😁</span>
+      <h4>Invisalign</h4>
+      <p>Straighten your smile discreetly with clear aligners. Remove them to eat, drink, and brush — then watch your smile transform month by month.</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">🔩</span>
+      <h4>Dental Implants</h4>
+      <p>The permanent solution for missing teeth. Looks, feels, and functions exactly like your natural tooth — and lasts a lifetime with proper care.</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">🚨</span>
+      <h4>Emergency Dentistry</h4>
+      <p>Tooth pain won't wait until Monday. We offer same-day emergency slots for existing and new patients. Call us — we'll get you seen today.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NO-SHOW STRIP -->
+<section class="noshow-strip">
+  <div class="ns-left">
+    <div class="sec-kicker">Smart Scheduling</div>
+    <h2>Zero no-shows.<br><span>Automated</span> reminders.</h2>
+    <p>Every Smile Life appointment comes with an automatic confirmation text, a 24-hour reminder, and a 2-hour heads-up before you arrive. Our patients never miss a cleaning — and never have to scramble to reschedule at the last minute.</p>
+  </div>
+  <div class="ns-right">
+    <div class="ns-card"><div class="big">24hr</div><div class="label">Reminder Sent Auto</div></div>
+    <div class="ns-card"><div class="big">2hr</div><div class="label">Pre-Visit Text</div></div>
+    <div class="ns-card"><div class="big">0</div><div class="label">No-Shows This Month</div></div>
+    <div class="ns-card"><div class="big">5★</div><div class="label">Post-Visit Review Ask</div></div>
+  </div>
+</section>
+
+<!-- COSMETIC FOCUS -->
+<section class="cosmetic" id="cosmetic">
+  <div class="cosmetic-inner">
+    <div class="cos-right">
+      <div class="cos-visual">
+        <div class="cos-tag">✦ Cosmetic Specialty</div>
+        <h3>Smile Makeovers That Turn Heads</h3>
+        <p>Veneers · Whitening · Invisalign · Bonding</p>
+      </div>
+    </div>
+    <div class="cos-left">
+      <div class="sec-kicker">Our Cosmetic Specialty</div>
+      <h2>A <span>smile</span> you're proud to show off.</h2>
+      <p>Dr. Cariens has advanced training in cosmetic dentistry and a reputation for results that look natural — not overdone. Patients come from across the Midlands for smile transformations that actually change how they feel about themselves.</p>
+      <p>Whether you want a subtle polish or a total overhaul, we'll design a custom plan around your face, your budget, and your timeline.</p>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-dot">🎨</div>
+          <div><h5>Smile Design Consultation</h5><p>See your results before any treatment starts. We use digital smile design to preview your transformation.</p></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-dot">💳</div>
+          <div><h5>Flexible Financing</h5><p>CareCredit and in-house payment plans available. Your dream smile doesn't have to wait for the right paycheck.</p></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-dot">🏆</div>
+          <div><h5>Award-Winning Results</h5><p>Consistently rated the top cosmetic dental practice in Lexington County by local patient surveys.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-top">
+    <h2>What Patients<br>Are <span>Saying</span></h2>
+    <div class="stars-big">★★★★★</div>
+  </div>
+  <div class="reviews-grid">
+    <div class="rv">
+      <div class="rv-stars">★★★★★</div>
+      <div class="rv-text">"I've always been self-conscious about my smile. After my veneers with Dr. Cariens I literally can't stop smiling. People keep asking what's different about me. Best decision I've ever made."</div>
+      <div class="rv-author">— Megan P., Lexington SC</div>
+    </div>
+    <div class="rv">
+      <div class="rv-stars">★★★★★</div>
+      <div class="rv-text">"The reminder texts are a game-changer. I used to skip cleanings because I'd forget to call and reschedule. Now I just show up and they've already handled everything. This is how a dental office should work."</div>
+      <div class="rv-author">— David H., Irmo SC</div>
+    </div>
+    <div class="rv">
+      <div class="rv-stars">★★★★★</div>
+      <div class="rv-text">"Took my nervous 7-year-old for his first visit. The whole team was so patient and gentle with him — he left saying he actually likes going to the dentist. I didn't know that was possible."</div>
+      <div class="rv-author">— Tara W., Chapin SC</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="sec-kicker">Your Smile Is Waiting</div>
+  <h2>Book Online.<br><span>Look Amazing.</span></h2>
+  <p>New patients always welcome. Most insurances accepted. Takes 60 seconds to get started — your best smile is one click away.</p>
+  <div class="cta-pair">
+    <a href="#book" class="btn-gold">Book My Appointment</a>
+    <a href="tel:8033597752" class="btn-outline-gold">📞 (803) 359-7752</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="f-logo">Smile<span>Life</span> Dentistry</div>
+    <p>Lexington, South Carolina</p>
+    <p>📞 (803) 359-7752</p>
+    <p>✉ info@smilelifelexington.com</p>
+  </div>
+  <div>
+    <h5>Hours</h5>
+    <p>Mon–Thu: 8am–5pm</p>
+    <p>Friday: 8am–1pm</p>
+    <p>Sat–Sun: Closed</p>
+  </div>
+  <div>
+    <h5>Services</h5>
+    <a href="#services">Preventive Care</a>
+    <a href="#services">Teeth Whitening</a>
+    <a href="#cosmetic">Veneers</a>
+    <a href="#services">Invisalign</a>
+    <a href="#services">Dental Implants</a>
+  </div>
+</footer>
+
+<script>
+  function submitBook() {
+    document.getElementById('bookForm').style.display = 'none';
+    document.getElementById('bookConfirm').style.display = 'block';
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 110);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.svc-card, .feature-item, .rv').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
